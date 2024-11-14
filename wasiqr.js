@@ -8,7 +8,7 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-	default: oyy_Sreejan,
+	default: Wasi_Tech,
 	useMultiFileAuthState,
 	jidNormalizedUser,
 	Browsers,
@@ -28,13 +28,13 @@ const {
 } = require("node:fs/promises")
 router.get('/', async (req, res) => {
 	const id = makeid();
-	async function SREEJAN_XD_QR_CODE() {
+	async function WASI_MD_QR_CODE() {
 		const {
 			state,
 			saveCreds
 		} = await useMultiFileAuthState('./temp/' + id)
 		try {
-			let Qr_Code_By_Oyy_Sreejan = Oyy_Sreejan({
+			let Qr_Code_By_Wasi_Tech = Wasi_Tech({
 				auth: state,
 				printQRInTerminal: false,
 				logger: pino({
@@ -43,8 +43,8 @@ router.get('/', async (req, res) => {
 				browser: Browsers.macOS("Desktop"),
 			});
 
-			Qr_Code_By_Oyy_Sreejan.ev.on('creds.update', saveCreds)
-			Qr_Code_By_Oyy_Sreejan.ev.on("connection.update", async (s) => {
+			Qr_Code_By_Wasi_Tech.ev.on('creds.update', saveCreds)
+			Qr_Code_By_Wasi_Tech.ev.on("connection.update", async (s) => {
 				const {
 					connection,
 					lastDisconnect,
@@ -56,35 +56,36 @@ router.get('/', async (req, res) => {
 					let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
 					await delay(800);
 				   let b64data = Buffer.from(data).toString('base64');
-				   let session = await Qr_Code_By_Oyy_Sreejan.sendMessage(Qr_Code_By_OYY_Sreejan.user.id, { text: '' + b64data });
+				   let session = await Qr_Code_By_Wasi_Tech.sendMessage(Qr_Code_By_Wasi_Tech.user.id, { text: '' + b64data });
 	
-				   let SREEJAN_XD_TEXT = `
+				   let WASI_MD_TEXT = `
 ┏━━━━━━━━━━━━━━
 ┃SREEJAN_XD SESSION IS 
 ┃SUCCESSFULLY
 ┃CONNECTED ✅🔥
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❶ || Creator = 𖥘 Oyysreejan 𖥘
+❶ || Creator = 𖥘 DAVID CYRIL 𖥘
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VaqdVpYGU3BTWmGp5Z2r
+❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 Please Follow My Support Channel
-Wanna talk to me?👉 https://t.me/sreejanxd 👈
+Wanna talk to me?👉 https://t.me/deecee_x 👈
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-> ©*Oyy sreejan*
+©*2024-2099 David Cyril*
 _____________________________________
 	
 _Don't Forget To Give Star To My Repo_`
-	 await Qr_Code_By_Sreejan_Xd.sendMessage(Qr_Code_By_Oyy_Sreejan.user.id,{text:SREEJAN_XD_TEXT},{quoted:session})
+	 await Qr_Code_By_Wasi_Tech.sendMessage(Qr_Code_By_Wasi_Tech.user.id,{text:WASI_MD_TEXT},{quoted:session})
+
 
 
 					await delay(100);
-					await Qr_Code_By_Oyy_Sreejan.ws.close();
+					await Qr_Code_By_Wasi_Tech.ws.close();
 					return await removeFile("temp/" + id);
 				} else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
 					await delay(10000);
-					SREEJAN_XD_QR_CODE();
+					WASI_MD_QR_CODE();
 				}
 			});
 		} catch (err) {
@@ -97,6 +98,6 @@ _Don't Forget To Give Star To My Repo_`
 			await removeFile("temp/" + id);
 		}
 	}
-	return await SREEJAN_XD_QR_CODE()
+	return await WASI_MD_QR_CODE()
 });
 module.exports = router
